@@ -1,0 +1,65 @@
+{
+  "repository": "https://github.com/example/demo-project",
+  "violations": [
+    {
+      "rule_id": "SEC-001",
+      "category": "security",
+      "severity": "critical",
+      "file": "config.py",
+      "line": 17,
+      "description": "Hardcoded API credential",
+      "evidence": "API key string assigned directly in source code at line 17",
+      "recommendation": "Use a secrets manager or environment variable instead of hardcoding credentials"
+    },
+    {
+      "rule_id": "HYGIENE-001",
+      "category": "repository_hygiene",
+      "severity": "medium",
+      "file": ".gitignore",
+      "line": null,
+      "description": "Incomplete .gitignore for Python project",
+      "evidence": ".gitignore does not include common Python patterns like .env, dist/, build/, *.egg-info",
+      "recommendation": "Use a comprehensive .gitignore template for Python (e.g., from github/gitignore)"
+    },
+    {
+      "rule_id": "DEP-001",
+      "category": "dependency_management",
+      "severity": "high",
+      "file": "requirements.txt",
+      "line": 3,
+      "description": "Unpinned dependency version",
+      "evidence": "Package 'flask' is listed without a version constraint",
+      "recommendation": "Pin all dependencies to specific versions (e.g., flask==3.0.0) for reproducible builds"
+    },
+    {
+      "rule_id": "TEST-001",
+      "category": "testing",
+      "severity": "high",
+      "file": null,
+      "line": null,
+      "description": "No test directory or test files found",
+      "evidence": "Repository contains no tests/ directory, test_*.py files, or pytest/unittest configuration",
+      "recommendation": "Add automated tests with pytest and include them in CI pipeline"
+    },
+    {
+      "rule_id": "CI-001",
+      "category": "ci_cd",
+      "severity": "medium",
+      "file": ".github/workflows/ci.yml",
+      "line": 10,
+      "description": "CI pipeline does not run tests",
+      "evidence": "Workflow only runs 'echo hello' without executing any test suite",
+      "recommendation": "Add a step to run pytest or the project's test suite in the CI workflow"
+    },
+    {
+      "rule_id": "CONFIG-001",
+      "category": "configuration",
+      "severity": "low",
+      "file": null,
+      "line": null,
+      "description": "No environment configuration template",
+      "evidence": "No .env.example or similar template file to document required environment variables",
+      "recommendation": "Add a .env.example listing required environment variables (without real values)"
+    }
+  ]
+}
